@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7706" systemVersion="14C1514" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="tJt-1f-Rcj">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7706" systemVersion="14C1514" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="fBi-EO-hHr">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
         <!--Emoji View Controller-->
@@ -23,18 +24,36 @@
                         </subviews>
                         <color key="backgroundColor" red="0.30883445640013996" green="1" blue="0.13706428733254228" alpha="1" colorSpace="calibratedRGB"/>
                     </view>
+                    <navigationItem key="navigationItem" id="1Cd-2w-5fm"/>
                     <connections>
                         <outlet property="tableView" destination="st2-OJ-p5y" id="PNo-rV-j9u"/>
+                        <segue destination="tJt-1f-Rcj" kind="show" identifier="tableViewToEmojiSegue" id="3fu-KW-Tje"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="lOD-w2-FVG" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="346" y="284"/>
         </scene>
-        <!--View Controller-->
+        <!--Navigation Controller-->
+        <scene sceneID="7Ad-J1-cbX">
+            <objects>
+                <navigationController id="fBi-EO-hHr" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="xXA-ZV-36i">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="ngi-Kg-12Q" kind="relationship" relationship="rootViewController" id="FhC-wO-lPb"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="2AF-3O-NOP" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-334" y="284"/>
+        </scene>
+        <!--Emoji Detail View Controller-->
         <scene sceneID="T5w-AW-gdC">
             <objects>
-                <viewController id="tJt-1f-Rcj" sceneMemberID="viewController">
+                <viewController id="tJt-1f-Rcj" customClass="emojiDetailViewController" customModule="Emojis" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="rdg-SG-lyr"/>
                         <viewControllerLayoutGuide type="bottom" id="lzU-AU-GDN"/>
@@ -43,19 +62,40 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="This is my emoji definition" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yYE-zk-Dil">
-                                <rect key="frame" x="201" y="178" width="198" height="53"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="This is my emoji definition" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yYE-zk-Dil">
+                                <rect key="frame" x="207" y="494" width="198" height="53"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="53" id="M6F-Y8-Dvw"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="🐒" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7gW-6L-uwc">
+                                <rect key="frame" x="95" y="127" width="422" height="211"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="211" id="HJh-ec-2i5"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="179"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailingMargin" secondItem="7gW-6L-uwc" secondAttribute="trailing" constant="10" id="BpS-fL-cLI"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="yYE-zk-Dil" secondAttribute="trailing" constant="10" id="PsZ-j4-Hfn"/>
+                            <constraint firstItem="yYE-zk-Dil" firstAttribute="leading" secondItem="Z38-UY-uJ3" secondAttribute="leadingMargin" constant="10" id="eyY-e5-A0t"/>
+                            <constraint firstItem="7gW-6L-uwc" firstAttribute="leading" secondItem="Z38-UY-uJ3" secondAttribute="leadingMargin" constant="10" id="oOb-Wz-Bwq"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="emoji" destination="7gW-6L-uwc" id="J77-xx-teT"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="reU-vB-nqX" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1034" y="284"/>
+            <point key="canvasLocation" x="1095" y="284"/>
         </scene>
     </scenes>
 </document>
