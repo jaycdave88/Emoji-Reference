@@ -14,11 +14,16 @@ class emojiDetailViewController :UIViewController {
     @IBOutlet weak var emoji: UILabel!
     
     var e = "❤️"
+    var emojiDict = "No Defination..."
+    
+    @IBOutlet weak var emojiDefinationLabel: UILabel!
     
     override func viewDidLoad() {
         self.emoji.text = self.e
-        
+        self.emojiDefinationLabel.text = self.emojiDict
         
     }
+    
+    
     
 }

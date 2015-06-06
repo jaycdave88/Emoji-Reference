@@ -5,7 +5,7 @@
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
-        <!--Emoji View Controller-->
+        <!--Emoji Dictionary-->
         <scene sceneID="lqi-DI-gxp">
             <objects>
                 <viewController id="ngi-Kg-12Q" customClass="EmojiViewController" customModule="Emojis" customModuleProvider="target" sceneMemberID="viewController">
@@ -17,14 +17,20 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="st2-OJ-p5y">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="st2-OJ-p5y">
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </tableView>
                         </subviews>
                         <color key="backgroundColor" red="0.30883445640013996" green="1" blue="0.13706428733254228" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstItem="st2-OJ-p5y" firstAttribute="leading" secondItem="RRi-SO-1Oj" secondAttribute="leading" id="3UU-5p-clw"/>
+                            <constraint firstItem="kUB-ud-9N4" firstAttribute="top" secondItem="st2-OJ-p5y" secondAttribute="bottom" id="AfD-Ai-Zj4"/>
+                            <constraint firstAttribute="trailing" secondItem="st2-OJ-p5y" secondAttribute="trailing" id="DC4-Ud-rHc"/>
+                            <constraint firstItem="st2-OJ-p5y" firstAttribute="top" secondItem="RRi-SO-1Oj" secondAttribute="top" id="KUR-6b-WhL"/>
+                        </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="1Cd-2w-5fm"/>
+                    <navigationItem key="navigationItem" title="Emoji Dictionary" id="1Cd-2w-5fm"/>
                     <connections>
                         <outlet property="tableView" destination="st2-OJ-p5y" id="PNo-rV-j9u"/>
                         <segue destination="tJt-1f-Rcj" kind="show" identifier="tableViewToEmojiSegue" id="3fu-KW-Tje"/>
@@ -62,12 +68,12 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="This is my emoji definition" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yYE-zk-Dil">
-                                <rect key="frame" x="207" y="494" width="198" height="53"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="This is my emoji definition" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsLetterSpacingToFitWidth="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yYE-zk-Dil">
+                                <rect key="frame" x="95" y="494" width="422" height="53"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="53" id="M6F-Y8-Dvw"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="24"/>
                                 <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
@@ -91,6 +97,7 @@
                     </view>
                     <connections>
                         <outlet property="emoji" destination="7gW-6L-uwc" id="J77-xx-teT"/>
+                        <outlet property="emojiDefinationLabel" destination="yYE-zk-Dil" id="pyS-u4-3aP"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="reU-vB-nqX" userLabel="First Responder" sceneMemberID="firstResponder"/>
